@@ -1,0 +1,30 @@
+<h2>自分の登録済みルーム一覧</h2>
+
+<table>
+  <thead>
+    <tr>
+	  <th>ルーム画像</th>
+	  <th>ルーム名</th>
+	  <th>ルーム紹介</th>
+	  <th>料金</th>
+	  <th>作成日</th>
+	  <th>削除</th>
+	</tr>
+  </thead>
+  <tbody>
+    <% @rooms.each do |room| %>
+	<% if room.user_id == current_user.id %>
+	<tr>
+	  <td><%= room.room_image %></td>
+	  <td><%= room.name %></td>
+	  <td><%= room.introduction %></td>
+	  <td><%= room.price %></td>
+	  <td><%= room.updated_at.to_s(:datetime_jp) %></td>
+	  <td><%= link_to "削除", room, method: :delete , data:{confirm: "本当に削除しますか？"} %></td>
+	</tr>
+	<% end %>
+	<% end %>
+  </tbody>
+</table>
+ <%= link_to "ルーム一覧", :rooms%>
+ <%= link_to "ルーム新規登録", [:new_room] %>

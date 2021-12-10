@@ -11,6 +11,51 @@
   </head>
 
   <body>
+  <header class ="header">
+    <div class="header-logo">
+     <a href= "/">
+       <img src="https://presite-potepancamp-rails-02.herokuapp.com/assets/logo.png" alt="ヘッダーのロゴ">
+      </a>
+
+    <form action="http://localhost:3000/rooms" accept-charset="UTF-8" method="get">
+      <div class="area">
+        <input type="search" name="area" id="area "placeholder= エリア>
+      </div>
+
+      <div class="keyword">
+         <input type="search" name="keyword" id="keyword" placeholder= キーワード>
+      </div>
+    </form>
+    </div>
+
+    <div class= "header_munu">
+    <% if user_signed_in? %>
+    <div class="rooms">
+      <%= link_to "部屋を登録", "/rooms/new" %>
+    </div>
+    <div class="rooms_index">
+      <%= link_to "部屋一覧", "/rooms" %>
+    </div>
+    <div class="rooms_show">
+      <%= link_to "自分の登録した部屋", "/rooms/show" %>
+    </div>
+    <div class="log_out">
+      <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+    </div>
+    <div class="user_show">
+      <%= link_to "ユーザー詳細", "/users/show" %>
+    </div>
+    <% else %>
+    <div class="log_in">
+      <%= link_to "ログイン", "/users/sign_in" %>
+    </div>
+    <div class="user_new">
+      <%= link_to "新規登録", "/users/sign_up" %>
+    </div>
+    <% end %>
+
+    </div>
+  </header>
     <%= yield %>
   </body>
 </html>
