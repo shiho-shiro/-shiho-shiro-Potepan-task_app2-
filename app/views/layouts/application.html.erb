@@ -31,13 +31,14 @@
     <div class= "header_munu">
     <% if user_signed_in? %>
     <div class="rooms">
-      <%= link_to "部屋を登録", "/rooms/new" %>
+      <%= link_to "部屋を登録", :new_room %>
     </div>
     <div class="rooms_index">
-      <%= link_to "部屋一覧", "/rooms" %>
+      <%= link_to "登録した部屋一覧", :rooms %>
     </div>
-    <div class="rooms_show">
-      <%= link_to "自分の登録した部屋", "/rooms/show" %>
+
+    <div class="reservation">
+      <%= link_to "予約済み一覧", :reservations %>
     </div>
     <div class="log_out">
       <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>

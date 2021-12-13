@@ -1,5 +1,5 @@
 class RoomsController < ApplicationController
-  before_action :set_current_user , {only: [:show]}
+
   def index
     @rooms = Room.all
 
@@ -10,9 +10,7 @@ class RoomsController < ApplicationController
   def create
     @room = Room.new(params.require(:room).permit(:name,:introduction,:address,:price,:room_image))
     @room.user_id = current_user.id
-
     if @room.save
-
       flash[:notice] = "部屋の登録が完了しました"
       redirect_to :rooms
     else
@@ -21,7 +19,8 @@ class RoomsController < ApplicationController
   end
   def show
 #自分が登録したルームを表示させる
-   @rooms = Room.all
+   @room = Room.find(params[:id])
+   @reservation = Reservation.new
   end
 
   def edit

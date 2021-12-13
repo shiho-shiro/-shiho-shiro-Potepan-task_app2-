@@ -1,30 +1,32 @@
 <h2>自分の登録済みルーム一覧</h2>
+<div class = "reserve">
+<% if @room.user_id == current_user.id %>
 
-<table>
-  <thead>
-    <tr>
-	  <th>ルーム画像</th>
-	  <th>ルーム名</th>
-	  <th>ルーム紹介</th>
-	  <th>料金</th>
-	  <th>作成日</th>
-	  <th>削除</th>
-	</tr>
-  </thead>
-  <tbody>
-    <% @rooms.each do |room| %>
-	<% if room.user_id == current_user.id %>
-	<tr>
-	  <td><%= room.room_image %></td>
-	  <td><%= room.name %></td>
-	  <td><%= room.introduction %></td>
-	  <td><%= room.price %></td>
-	  <td><%= room.updated_at.to_s(:datetime_jp) %></td>
-	  <td><%= link_to "削除", room, method: :delete , data:{confirm: "本当に削除しますか？"} %></td>
-	</tr>
+	  <p>ルーム画像<%= @room.room_image %></p>
+
+	  <p>ルーム名: <%= @room.name %> </p>
+	  <p>ルーム紹介: <%= @room.introduction %></p>
+	  <p>料金: <%= @room.price %></p>
 	<% end %>
-	<% end %>
-  </tbody>
-</table>
- <%= link_to "ルーム一覧", :rooms%>
+</div>
+ <%= link_to "ルーム一覧", :rooms %>
  <%= link_to "ルーム新規登録", [:new_room] %>
+
+ <h2>ルーム予約</h2>
+<%= form_with model: @reservation  do |r| %>
+<%= "¥#{@room.price} / 日" %><br>
+        <%= r.label :check_in ,"チェックイン" %>
+        <%= r.date_field :check_in %><br>
+        <%= r.label :check_out ,"チェックアウト" %>
+        <%= r.date_field :check_out  %><br>
+  		<%= r.label :customer,"人数" %>
+        <%= r.number_field :customer %><br>
+		<%= r.hidden_field :room_id, value: @room.id %>
+		<%= r.hidden_field :total_days, value: @reservation.total_days %>
+		<%= r.hidden_field :total_amount, value: @reservation.total_amount %>
+      <div>
+        <ul>
+          <li><%= r.submit "予約を確認する" %></li>
+        </ul>
+      </div>
+    <% end %>
