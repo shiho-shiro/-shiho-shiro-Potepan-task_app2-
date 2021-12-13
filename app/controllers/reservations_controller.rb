@@ -4,17 +4,26 @@ class ReservationsController < ApplicationController
   def index
     #予約済みの部屋を表示
     @reservations = Reservation.all
+    @room = Room.find(params[:id])
+
   end
 
   def new
+    @reservation = Reservation.new(reservation_params)
+    @reservation.user_id = current_user.id
+    @room = Room.find(params[:id])
+    @reservation.room_id = @room.id
   end
 
+  def show
+
+  end
 
   def create
     @reservation = Reservation.new(reservation_params)
     @reservation.user_id = current_user.id
-    @price = Room.find(params[:price])
-    @room_price = @price.reservations
+    @room = Room.find(params[:id])
+    @reservation.room_id = @room.id
     @reservation.total_days = @reservation.amount_days
     @reservation.total_amount = @reservation.amount_price
     binding.pry
