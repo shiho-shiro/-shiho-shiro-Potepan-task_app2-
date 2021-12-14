@@ -7,7 +7,6 @@ class ReservationsController < ApplicationController
   end
   def new
     @reservation = Reservation.new(reservation_params)
-    @reservation.user_id = current_user.id
     @reservation.total_days = @reservation.amount_days
     @reservation.total_amount = @reservation.amount_price
   end
@@ -20,14 +19,12 @@ class ReservationsController < ApplicationController
     @reservation = Reservation.new(reservation_params)
   end
 
-
-
   def show
   end
 
   private
     def reservation_params
-      params.require(:reservation).permit(:user_id,:room_id,:check_in,:check_out,:customer,:total_days,:total_amount)
+      params.require(:reservation).permit(:user_id, :check_in, :check_out, :customer, :room_id)
     end
 
   def edit
