@@ -11,5 +11,5 @@ Rails.application.routes.draw do
 
   get 'users/show'
   resources :rooms
-  resources :reservations 
+  resources :reservations
 end

@@ -1,0 +1,16 @@
+<h2>ルーム予約</h2>
+
+<%= "¥#{@reservation.room.price} / 日" %><br>
+<%= @room.id %><br>
+        <%= "チェックイン" %>
+        <%= @reservation.check_in %><br>
+        <%= "チェックアウト" %>
+        <%= @reservation.check_out  %><br>
+  		<%= "人数" %>
+        <%= @reservation.customer %><br>
+		<%= "宿泊日数" %>
+		<%= @reservation.total_days %><br>
+		<%= "合計金額" %>
+		<%= @reservation.total_amount %><br>
+
+

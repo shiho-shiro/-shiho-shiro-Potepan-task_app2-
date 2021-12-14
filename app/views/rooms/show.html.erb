@@ -13,7 +13,7 @@
  <%= link_to "ルーム新規登録", [:new_room] %>
 
  <h2>ルーム予約</h2>
-<%= form_with model: @reservation  do |r| %>
+<%= form_with moel: @reservation,url: new_reservation_path, method: :get ,local: true do |r| %>
 <%= "¥#{@room.price} / 日" %><br>
         <%= r.label :check_in ,"チェックイン" %>
         <%= r.date_field :check_in %><br>
@@ -22,12 +22,10 @@
   		<%= r.label :customer,"人数" %>
         <%= r.number_field :customer %><br>
 		<%= r.hidden_field :room_id, value: @room.id %>
-		<%= r.hidden_field :total_days, value: @reservation.total_days %>
-		<%= r.hidden_field :total_amount, value: @reservation.total_amount %>
-		
       <div>
         <ul>
           <li><%= r.submit "予約を確認する" %></li>
         </ul>
       </div>
-    <% end %>
+	   <% end %>
+

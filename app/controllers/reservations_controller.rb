@@ -4,38 +4,25 @@ class ReservationsController < ApplicationController
   def index
     #予約済みの部屋を表示
     @reservations = Reservation.all
-
-
   end
-
   def new
-
     @reservation = Reservation.new(reservation_params)
     @reservation.user_id = current_user.id
+    @reservation.total_days = @reservation.amount_days
+    @reservation.total_amount = @reservation.amount_price
   end
 
   def show
-
   end
 
   def create
     #入力画面
     @reservation = Reservation.new(reservation_params)
-    @reservation.user_id = current_user.id
-    @reservation.room.price
-    @reservation.total_days = @reservation.amount_days
-    @reservation.total_amount = @reservation.amount_price
-    if @reservation.save
-
-    else
-      render "new"
-    end
-
   end
 
+
+
   def show
-
-
   end
 
   private
