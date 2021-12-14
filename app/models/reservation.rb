@@ -6,6 +6,6 @@ class Reservation < ApplicationRecord
 		self.total_days = (self.check_out - self.check_in).to_i
 	end
 	def amount_price
-		self.total_amount = @room.price * self.customer * amount_days
+		self.total_amount = self.room.price * self.customer * amount_days
 	end
 end

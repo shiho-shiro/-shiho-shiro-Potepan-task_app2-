@@ -4,15 +4,14 @@ class ReservationsController < ApplicationController
   def index
     #予約済みの部屋を表示
     @reservations = Reservation.all
-    @room = Room.find(params[:id])
+
 
   end
 
   def new
+
     @reservation = Reservation.new(reservation_params)
     @reservation.user_id = current_user.id
-    @room = Room.find(params[:id])
-    @reservation.room_id = @room.id
   end
 
   def show
@@ -20,19 +19,18 @@ class ReservationsController < ApplicationController
   end
 
   def create
+    #入力画面
     @reservation = Reservation.new(reservation_params)
     @reservation.user_id = current_user.id
-    @room = Room.find(params[:id])
-    @reservation.room_id = @room.id
+    @reservation.room.price
     @reservation.total_days = @reservation.amount_days
     @reservation.total_amount = @reservation.amount_price
-    binding.pry
     if @reservation.save
 
     else
       render "new"
     end
-    #入力画面
+
   end
 
   def show

@@ -11,11 +11,5 @@ Rails.application.routes.draw do
 
   get 'users/show'
   resources :rooms
-  resources :reservations do
-    collection do
-      post "confirmation"
-      
-    end
-  end
-
+  resources :reservations 
 end
