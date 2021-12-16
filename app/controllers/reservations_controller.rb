@@ -7,6 +7,7 @@ class ReservationsController < ApplicationController
   end
   def new
     @reservation = Reservation.new(reservation_params)
+    @reservation.user_id = current_user.id
     if @reservation.invalid?
       render "rooms/show"
       flash[:notice] = "必須項目です"
@@ -19,7 +20,7 @@ class ReservationsController < ApplicationController
   def create
     #入力画面
     @reservation = Reservation.new(reservation_params)
-
+    @reservation.user_id = current_user.id
   end
 
   def complete

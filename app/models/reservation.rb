@@ -17,12 +17,17 @@ class Reservation < ApplicationRecord
 	end
 
 	def check_in_and_check_out
-		errors.add(:check_out,"開始日より前開始日より前の日付は登録できません。")
-		if self.check_in.nil? || self.check_in < Date.today
+		errors.add(:check_out,"過去より前の日付は登録できません。")
+		if self.check_out < Date.today
 		end
-		if self.check_out.nil? || self.check_out < Date.today
+		errors.add(:check_in,"過去より前の日付は登録できません。")
+		if	self.check_in < Date.today
 		end
-		if self.check_in > self.check_out
+		errors.add(:check_out,"日付を指定してください。")
+		if	self.check_out.nil?
+		end
+		errors.add(:check_in,"日付を指定してください。")
+		if	self.check_in.nil?
 		end
 	end
 end
