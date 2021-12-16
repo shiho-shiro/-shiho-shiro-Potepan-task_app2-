@@ -8,9 +8,19 @@ class ReservationsController < ApplicationController
   def new
     @reservation = Reservation.new(reservation_params)
     @reservation.user_id = current_user.id
-    if @reservation.invalid?
-      render "rooms/show"
-      flash[:notice] = "必須項目です"
+    @room = Room.find_by(params[:id])
+    @reservation.room_id = @room.id
+
+    if @reservation.check_in.nil? || @reservation.check_out.nil?
+      redirect_to @room, notice: "日付を指定してください。"
+    elsif @reservation.check_out < Date.today || @reservation.check_in < Date.today
+      redirect_to @room, notice: "今日より過去の日付は指定できません。"
+    elsif @reservation.check_out == @reservation.check_in
+      redirect_to @room, notice: "同じ日付は指定できません。"
+    elsif @reservation.check_out < @reservation.check_in
+      redirect_to @room, notice: "チェックインより後の日付を指定してください。"
+    elsif @reservation.customer == nil
+      redirect_to @room, notice: "人数を指定してください。"
     else
     @reservation.total_days = @reservation.amount_days.to_i
     @reservation.total_amount = @reservation.amount_price.to_i
@@ -21,6 +31,8 @@ class ReservationsController < ApplicationController
     #入力画面
     @reservation = Reservation.new(reservation_params)
     @reservation.user_id = current_user.id
+
+
   end
 
   def complete

@@ -22,6 +22,7 @@ class RoomsController < ApplicationController
 #自分が登録したルームを表示させる
    @room = Room.find(params[:id])
    @reservation = Reservation.new
+   @reservation.room_id = @room.id
   end
 
   def edit
