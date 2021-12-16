@@ -1,0 +1,17 @@
+<h2>予約完了</h2>
+
+<%= "¥#{@reservation.room.price} / 日" %><br>
+ <p>ルームルーム名 </p>
+<%= @reservation.room.name %><br>
+<p>チェックイン </p>
+  <%= @reservation.check_in %><br>
+<p>チェックアウト </p>
+  <%= @reservation.check_out %><br>
+<p>宿泊人数</p>
+  <%= @reservation.customer %><br>
+<p>宿泊人数 </p>
+  <%= @reservation.total_days %><br>
+<p>合計金額 </p>
+  <%= @reservation.total_amount %><br>
+
+<%= link_to "予約済み一覧", :reservations %>

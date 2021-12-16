@@ -7,33 +7,45 @@ class ReservationsController < ApplicationController
   end
   def new
     @reservation = Reservation.new(reservation_params)
-    @reservation.total_days = @reservation.amount_days
-    @reservation.total_amount = @reservation.amount_price
-  end
-
-  def show
+    if @reservation.invalid?
+      render "rooms/show"
+      flash[:notice] = "必須項目です"
+    else
+    @reservation.total_days = @reservation.amount_days.to_i
+    @reservation.total_amount = @reservation.amount_price.to_i
+    end
   end
 
   def create
     #入力画面
     @reservation = Reservation.new(reservation_params)
+
   end
 
-  def show
-  end
-
-  private
-    def reservation_params
-      params.require(:reservation).permit(:user_id, :check_in, :check_out, :customer, :room_id)
+  def complete
+    @reservation = Reservation.new(reservation_params)
+    if @reservation.save
+      flash[:notice] = "予約が完了しました"
+    else
+      render "new"
     end
+  end
 
   def edit
   end
 
   def update
+
   end
 
   def destroy
   end
+
+  private
+    def reservation_params
+      params.require(:reservation).permit(:user_id, :check_in, :check_out, :customer, :room_id, :total_days, :total_amount)
+    end
+
+
 
 end

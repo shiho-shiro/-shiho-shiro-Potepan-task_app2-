@@ -17,6 +17,7 @@ class RoomsController < ApplicationController
       render "new"
     end
   end
+
   def show
 #自分が登録したルームを表示させる
    @room = Room.find(params[:id])

@@ -13,6 +13,7 @@
  <%= link_to "ルーム新規登録", [:new_room] %>
 
  <h2>ルーム予約</h2>
+ <%= render"shared/error", obj: @reservation %>
 <%= form_with model: @reservation, url: new_reservation_path, method: :get ,local: true do |r| %>
 <%= "¥#{@room.price} / 日" %><br>
         <%= r.label :check_in ,"チェックイン" %>
@@ -26,8 +27,9 @@
       <div>
         <ul>
           <li><%= r.submit "予約を確認する" %></li>
-
+		  <li> <%= link_to "戻る", :rooms %></li>
         </ul>
       </div>
-	   <% end %>
+<% end %>
+
 

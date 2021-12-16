@@ -1,16 +1,34 @@
-<h2>ルーム予約</h2>
+<h2>予約内容確認</h2>
 
 <%= "¥#{@reservation.room.price} / 日" %><br>
-<%= @reservation.room.id %><br>
-        <%= "チェックイン" %>
-        <%= @reservation.check_in %><br>
-        <%= "チェックアウト" %>
-        <%= @reservation.check_out  %><br>
-  		<%= "人数" %>
-        <%= @reservation.customer %><br>
-		<%= "宿泊日数" %>
-		<%= @reservation.total_days %><br>
-		<%= "合計金額" %>
-		<%= @reservation.total_amount %><br>
+<%= "ルーム名" %>
+<%= @reservation.room.name %><br>
+<%= "チェックイン" %>
+  <%= @reservation.check_in %><br>
+<%= "チェックアウト" %>
+  <%= @reservation.check_out  %><br>
+<%= "人数" %>
+  <%= @reservation.customer %><br>
+<%= "宿泊日数" %>
+  <%= @reservation.total_days %><br>
+<%= "合計金額" %>
+  <%= @reservation.total_amount %><br>
+
+<%= form_with model: @reservation, method: :post, url: complete_reservations_path do |r| %>
+    <%= r.hidden_field :check_in ,value:@reservation.check_in %>
+    <%= r.hidden_field :check_out,value:@reservation.check_out  %>
+    <%= r.hidden_field :customer,value:@reservation.customer %>
+	<%= r.hidden_field :room_id ,value: @reservation.room.id%>
+	<%= r.hidden_field :user_id,value: current_user.id  %>
+	<%= r.hidden_field :total_days,value:@reservation.total_days %>
+	<%= r.hidden_field :total_amount,value:@reservation.total_amount %>
+      <div>
+        <ul>
+          <li><%= r.submit "予約を確定する" %></li>
+		  <li><%= link_to "予約画面に戻る", :rooms  %></li>
+        </ul>
+      </div>
+	   <% end %>
+
 
 

@@ -1,0 +1,26 @@
+<h2>予約したルーム一覧</h2>
+<table>
+  <thead>
+    <tr>
+	  <th>ルーム画像</th>
+	  <th>ルーム名</th>
+	  <th>ルーム紹介</th>
+	  <th>料金</th>
+	  <th>作成日</th>
+	  
+	</tr>
+  </thead>
+  <tbody>
+    <% @reservations.each do |reserve| %>
+	<% if reserve.user_id == current_user.id %>
+	<tr>
+	  <td><%= reserve.room.room_image %></td>
+	  <td><%= reserve.room.name %></td>
+	  <td><%= reserve.room.introduction %></td>
+	  <td><%= reserve.room.price %></td>
+	  <td><%= reserve.updated_at.to_s(:datetime_jp) %></td>
+	</tr>
+<% end %>
+<% end %>
+  </tbody>
+</table>
