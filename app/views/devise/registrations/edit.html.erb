@@ -2,39 +2,42 @@
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true, autocomplete: "ユーザー名" %>
-  </div>
+  <table>
+   <tr class="field">
+    <th><%= f.label :name, "ユーザー名" %></th>
+    <td><%= f.text_field :name, autofocus: true, autocomplete: "ユーザー名" %></td>
+   </tr>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "メールアドレス" %>
-  </div>
+  <tr class="field">
+    <th><%= f.label :email, "メールアドレス" %></th>
+    <td><%= f.email_field :email, autofocus: true, autocomplete: "メールアドレス" %></td>
+  </tr>
+
+  <tr class="field">
+    <th><%= f.label :introduction, "自己紹介" %></th>
+    <td><%= f.text_area :introduction, autofocus: true, :size => "30 * 20" %></td>
+  </tr>
+
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "新しいパスワード" %>
+  <tr class="field">
+    <th><%= f.label :password, "新しいパスワード" %> <br /><i>(変更しない場合は空欄)</i></th>
+    <td><%= f.password_field :password, autocomplete: "新しいパスワード" %></td>
     <% if @minimum_password_length %>
       <br />
       <em><%= @minimum_password_length %> characters minimum</em>
     <% end %>
-  </div>
+  </tr>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "確認用パスワード" %>
-  </div>
+  <tr class="field">
+    <th><%= f.label :password_confirmation, "確認用パスワード" %></th>
+    <td><%= f.password_field :password_confirmation, autocomplete: "確認用パスワード" %></td>
+  </tr>
 
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "現在のパスワード" %>
-  </div>
-
+  </table>
   <div class="actions">
     <%= f.submit "更新" %>
   </div>

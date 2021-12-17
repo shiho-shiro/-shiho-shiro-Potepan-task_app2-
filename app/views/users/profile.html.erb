@@ -1,0 +1,19 @@
+<h2>プロフィール</h2>
+
+<%= form_with model: @user do |u| %>
+<table>
+        <tr>
+          <th><%= f.label :user_image, "アカウント画像" %></th>
+          <td><%= #f.text_area :content ,class:"posts-content" %></td>
+        </tr>
+		<tr>
+          <th><%= f.label :name, "ユーザー名" %></th>
+          <td><%= #f.text_area :content ,class:"posts-content" %></td>
+        </tr>
+		<tr>
+          <th><%= f.label :user_image, "アカウント画像" %></th>
+          <td><%= #f.text_area :content ,class:"posts-content" %></td>
+        </tr>
+</table>
+	  <%= f.submit "編集を完了する" %>
+<% end %>

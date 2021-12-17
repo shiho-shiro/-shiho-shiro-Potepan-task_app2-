@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
 	def configure_permitted_parameters
 	  added_attrs = [ :email, :username, :password, :password_confirmation ]
 	  devise_parameter_sanitizer.permit :sign_up, keys: [:name]
-	  devise_parameter_sanitizer.permit :account_update, keys: [:name]
+	  devise_parameter_sanitizer.permit :account_update, keys: [:name, :introduction] #[user_image]
 	  devise_parameter_sanitizer.permit :sign_in, keys: added_attrs
 	end
 	# ログイン後、home#topに移動する

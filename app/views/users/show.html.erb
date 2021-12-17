@@ -1,5 +1,25 @@
-<h1>Users#show</h1>
-<p>名前 : <%= @user.name %></p>
-<p>メールアドレス : <%= @user.email %></p>
+<h2>アカウント</h2>
+<table>
+  <!--<tr>
+	<th>アカウント画像</th>
+	<td></td>
+  </tr> -->
+  <tr>
+	<th>ユーザー名</th>
+	<td><%= @user.name %></td>
+  </tr>
+  <tr>
+	<th>メールアドレス</th>
+	<td><%= @user.email %></td>
+  </tr>
+  <tr>
+	<th>自己紹介</th>
+	<td><%= @user.introduction %></td>
+  </tr>
+  <tr>
+	<th>パスワード</th>
+	<td>*********</td>
+  </tr>
+</table>
 
-とりあえず表示させるだけ
+<%= link_to "編集する" , edit_user_registration_path  %>
