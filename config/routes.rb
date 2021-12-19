@@ -10,7 +10,11 @@ Rails.application.routes.draw do
   end
 
   get 'users/show'
-  resources :rooms
+  resources :rooms do
+    collection do
+      get :search
+    end
+  end
   resources :reservations do
     collection do
      post :complete # 完了画面

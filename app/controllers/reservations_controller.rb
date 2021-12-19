@@ -3,6 +3,7 @@ class ReservationsController < ApplicationController
 
   def index
     #予約済みの部屋を表示
+    
     @reservations = Reservation.all
   end
   def new
@@ -31,8 +32,8 @@ class ReservationsController < ApplicationController
     #入力画面
     @reservation = Reservation.new(reservation_params)
     @reservation.user_id = current_user.id
-
-
+  end
+  def show
   end
 
   def complete
@@ -52,6 +53,7 @@ class ReservationsController < ApplicationController
   end
 
   def destroy
+
   end
 
   private

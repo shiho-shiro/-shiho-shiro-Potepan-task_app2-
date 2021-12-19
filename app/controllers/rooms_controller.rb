@@ -18,6 +18,14 @@ class RoomsController < ApplicationController
     end
   end
 
+  def search
+    if params[:address].present?
+      @rooms = Room.where('address LIKE ?', "%#{params[:address]}%")
+    else
+      @rooms = Room.none
+    end
+  end
+
   def show
 #自分が登録したルームを表示させる
    @room = Room.find(params[:id])
