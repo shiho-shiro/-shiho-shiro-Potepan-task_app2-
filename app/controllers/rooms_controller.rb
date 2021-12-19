@@ -31,6 +31,7 @@ class RoomsController < ApplicationController
    @room = Room.find(params[:id])
    @reservation = Reservation.new
    @reservation.room_id = @room.id
+   binding.pry
   end
 
   def edit

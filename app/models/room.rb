@@ -1,5 +1,5 @@
 class Room < ApplicationRecord
-	has_many :resevations , dependent: :destroy
+	has_many :resevations
 	belongs_to :user
 
 	validates :name, presence: true

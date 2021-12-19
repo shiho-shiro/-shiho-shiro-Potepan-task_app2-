@@ -3,7 +3,6 @@ class ReservationsController < ApplicationController
 
   def index
     #予約済みの部屋を表示
-    
     @reservations = Reservation.all
   end
   def new
@@ -11,7 +10,7 @@ class ReservationsController < ApplicationController
     @reservation.user_id = current_user.id
     @room = Room.find_by(params[:id])
     @reservation.room_id = @room.id
-
+    binding.pry
     if @reservation.check_in.nil? || @reservation.check_out.nil?
       redirect_to @room, notice: "日付を指定してください。"
     elsif @reservation.check_out < Date.today || @reservation.check_in < Date.today
@@ -32,9 +31,10 @@ class ReservationsController < ApplicationController
     #入力画面
     @reservation = Reservation.new(reservation_params)
     @reservation.user_id = current_user.id
+    @reservation.room_id = @room.id
+    binding.pry
   end
-  def show
-  end
+
 
   def complete
     @reservation = Reservation.new(reservation_params)
