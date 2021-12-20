@@ -18,7 +18,7 @@
     <%= r.hidden_field :check_in ,value:@reservation.check_in %>
     <%= r.hidden_field :check_out,value:@reservation.check_out  %>
     <%= r.hidden_field :customer,value:@reservation.customer %>
-	<%= r.hidden_field :room_id ,value: @reservation.room.id%>
+	<%= r.hidden_field :room_id ,value: @reservation.room_id%>
 	<%= r.hidden_field :user_id,value: current_user.id  %>
 	<%= r.hidden_field :total_days,value:@reservation.total_days %>
 	<%= r.hidden_field :total_amount,value:@reservation.total_amount %>

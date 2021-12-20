@@ -2,8 +2,6 @@
 <div class = "reserve">
 <% if @room.user_id == current_user.id %>
 
-	  <p>ルーム画像<%= @room.room_image %></p>
-
 	  <p>ルーム名: <%= @room.name %> </p>
 	  <p>ルーム紹介: <%= @room.introduction %></p>
 	  <p>料金: <%= @room.price %></p>

@@ -14,7 +14,7 @@
     <% @reservations.each do |reserve| %>
 	<% if reserve.user_id == current_user.id %>
 	<tr>
-	  <td><%= reserve.room.room_image %></td>
+	  
 	  <td><%= reserve.room.name %></td>
 	  <td><%= reserve.room.introduction %></td>
 	  <td><%= reserve.room.price %></td>
