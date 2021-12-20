@@ -14,6 +14,7 @@
     <% @rooms.each do |room| %>
 	<% if room.user_id == current_user.id %>
 	<tr>
+
 	  <td><%= link_to room.name , room %></td>
 	  <td><%= room.introduction %></td>
 	  <td><%= room.price %></td>
