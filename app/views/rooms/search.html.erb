@@ -2,7 +2,9 @@
 
 <% @rooms.each do |room| %>
 <div class="result">
-   
+  <% if room.image.present? %>
+   <%= image_tag room.image.variant(resize:'150x150'), clss: "search_rooms" %>
+  <% end %>
     <h3><%= room.name %></h3>
     <p><%= room.address %></p>
     <p>¥ <%= room.price %></p>

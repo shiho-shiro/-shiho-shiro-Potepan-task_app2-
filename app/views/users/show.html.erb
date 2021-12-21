@@ -1,6 +1,11 @@
 <h2>アカウント</h2>
 <table>
-  
+  <tr>
+	<th>アカウント画像</th>
+	<% if @user.image.present? %>
+	<td><%= image_tag @user.image.variant(resize:'50x50'), clss: "user_icon" %></td>
+	<% end %>
+  </tr>
   <tr>
 	<th>ユーザー名</th>
 	<td><%= @user.name %></td>

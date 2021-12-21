@@ -8,13 +8,13 @@ class RoomsController < ApplicationController
     @room = Room.new
   end
   def create
-    @room = Room.new(params.require(:room).permit(:name,:introduction,:address,:price,:room_image))
+    @room = Room.new(params.require(:room).permit(:name,:introduction,:address,:price,:image))
     @room.user_id = current_user.id
 
 
     if @room.save
-      flash[:notice] = "部屋の登録が完了しました"
       redirect_to :rooms
+      flash[:notice] = "部屋の登録が完了しました"
     else
       render "new"
     end

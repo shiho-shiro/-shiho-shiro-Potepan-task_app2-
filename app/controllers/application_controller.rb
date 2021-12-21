@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
 	def configure_permitted_parameters
 	  added_attrs = [ :email, :username, :password, :password_confirmation ]
 	  devise_parameter_sanitizer.permit :sign_up, keys: [:name]
-	  devise_parameter_sanitizer.permit :account_update, keys: [:name, :introduction] #[user_image]
+	  devise_parameter_sanitizer.permit :account_update, keys: [:name, :introduction, :image]
 	  devise_parameter_sanitizer.permit :sign_in, keys: added_attrs
 	end
 	# ログイン後、home#topに移動する
@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
 	end
 	def set_current_user
 		@current_user = User.find_by(id: session[:user_id])
-		
+
 	end
 
 end

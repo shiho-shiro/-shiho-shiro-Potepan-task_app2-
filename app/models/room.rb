@@ -9,6 +9,5 @@ class Room < ApplicationRecord
 	validates :address, presence: true
 	#validates :room_image, presence: true
 
-
-
+	has_one_attached :image
 end

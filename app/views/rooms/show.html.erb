@@ -1,12 +1,16 @@
 <h2>自分の登録済みルーム一覧</h2>
-<div class = "reserve">
-<% if @room.user_id == current_user.id %>
 
+<div class = "reserve">
+  <% if @room.user_id == current_user.id %>
+  <% if @room.image.present? %>
+    <p>イメージ画像: <%=  image_tag @room.image.variant(resize:'200x200'), clss: "room_image"  %></p>
+  <% end %>
 	  <p>ルーム名: <%= @room.name %> </p>
 	  <p>ルーム紹介: <%= @room.introduction %></p>
 	  <p>料金: <%= @room.price %></p>
-    <% end %>
+  <% end %>
 </div>
+
  <%= link_to "ルーム一覧", :rooms %>
  <%= link_to "ルーム新規登録", [:new_room] %>
 
