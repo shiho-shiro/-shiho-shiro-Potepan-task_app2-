@@ -1,11 +1,13 @@
 class ReservationsController < ApplicationController
   before_action :set_current_user
-
+  before_action :authenticate_user!
   def index
     #予約済みの部屋を表示
+    @user = current_user
     @reservations = Reservation.all
   end
   def new
+    @user = current_user
     @reservation = Reservation.new(reservation_params)
     @reservation.user_id = current_user.id
 
@@ -36,6 +38,7 @@ class ReservationsController < ApplicationController
 
 
   def complete
+    @user = current_user
     @reservation = Reservation.new(reservation_params)
     @reservation.save
     redirect_to :reservations

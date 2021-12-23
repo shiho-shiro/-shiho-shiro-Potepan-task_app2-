@@ -1,10 +1,11 @@
 class RoomsController < ApplicationController
-
+  before_action :authenticate_user!, except: [:search]
   def index
     @rooms = Room.all
-
+    @user = current_user
   end
   def new
+    @user = current_user
     @room = Room.new
   end
   def create
@@ -21,6 +22,7 @@ class RoomsController < ApplicationController
   end
 
   def search
+    @user = current_user
     if params[:address].present?
       @rooms = Room.where('address LIKE ?', "%#{params[:address]}%")
     else
@@ -30,6 +32,7 @@ class RoomsController < ApplicationController
 
   def show
 #自分が登録したルームを表示させる
+   @user = current_user
    @room = Room.find(params[:id])
    @room.user_id = current_user.id
    @reservation = Reservation.new

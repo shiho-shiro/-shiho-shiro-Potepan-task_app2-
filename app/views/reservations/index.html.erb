@@ -13,10 +13,12 @@
 	  <th>ルーム名</th>
 	  <th>ルーム紹介</th>
 	  <th>料金</th>
-	  <th>予約日</th>
-
+	  <th>チェックイン</th>
+	  <th>チェックアウト</th>
+	  <th>予約確定日</th>
 	</tr>
   </thead>
+
   <tbody>
     <% @reservations.each do |reserve| %>
 	<% if reserve.user_id == current_user.id %>
@@ -27,6 +29,8 @@
 	  <td><%= reserve.room.name %></td>
 	  <td><%= reserve.room.introduction %></td>
 	  <td>¥<%= reserve.room.price %></td>
+	  <td><%= reserve.check_in.strftime("%Y年%m月%d日") %></td>
+	  <td><%= reserve.check_out.strftime("%Y年%m月%d日") %></td>
 	  <td><%= reserve.updated_at.to_s(:datetime_jp) %></td>
 	</tr>
 <% end %>

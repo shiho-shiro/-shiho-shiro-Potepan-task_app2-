@@ -7,7 +7,7 @@ class Room < ApplicationRecord
 	validates :introduction, length: {maximum: 30}
 	validates :price, numericality: true
 	validates :address, presence: true
-	#validates :room_image, presence: true
+	validates :image, presence: true
 
 	has_one_attached :image
 end

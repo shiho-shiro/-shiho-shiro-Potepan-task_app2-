@@ -11,55 +11,57 @@
   </head>
 
   <body>
-  <header class ="header">
-   <div class="header-logo">
-     <a href= "/">
-       <img src="https://presite-potepancamp-rails-02.herokuapp.com/assets/logo.png" alt="ヘッダーのロゴ">
+   <header class ="header">
+    <div class="header-logo">
+      <a href= "/">
+        <img src="https://presite-potepancamp-rails-02.herokuapp.com/assets/logo.png" alt="ヘッダーのロゴ">
       </a>
-    <div class="area_search">
-     <%= form_with url: search_rooms_path, method: :get, local: true do |s| %>
-      <%= s.text_field :address,placeholder: "エリア" %>
-      <%= s.submit :search %><!-- cssでボタンを非表示 -->
+     <div class="area_search">
+      <%= form_with url: search_rooms_path, method: :get, local: true do |s| %>
+       <%= s.text_field :address,placeholder: "エリア" %>
+       <%= s.submit :search %><!-- cssでボタンを非表示 -->
       <% end %>
+     </div>
+     <div class="keyword">
+       <%= form_with url: search_rooms_path, method: :get, local: true do |s| %>
+        <%= s.text_field :address,placeholder: "キーワード" %>
+        <%= s.submit :search %><!-- cssでボタンを非表示 -->
+       <% end %>
+     </div>
     </div>
-    <div class="keyword">
-        <%= form_with url: search_rooms_path, method: :get, local: true do |s| %>
-      <%= s.text_field :address,placeholder: "キーワード" %>
-      <%= s.submit :search %><!-- cssでボタンを非表示 -->
-      <% end %>
-    </div>
-   </div>
 
-
-   <div class= "header_munu">
+    <div class= "header_menu">
     <% if user_signed_in? %>
+      <div class="header_user"><%= @user.name%>
+       <% if @user.image.present? %>
+	     <%= image_tag @user.image.variant(resize:'50x50'), clss: "user_icon" %>
+     <% end %>
+    </div>
 
-     <div class="rooms">
-      <%= link_to "部屋を登録", :new_room %>
-     </div>
-     <div class="rooms_index">
-      <%= link_to "登録した部屋一覧", :rooms %>
-     </div>
 
-     <div class="reservation">
-      <%= link_to "予約済み一覧", :reservations %>
-     </div>
-     <div class="log_out">
-      <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-     </div>
-     <div class="user_show">
-      <%= link_to "ユーザー詳細", "/users/show" %>
-     </div>
+    <ul class="menus">
+      <li><%= link_to "部屋を登録", :new_room %></li>
+      <li> <%= link_to "登録した部屋一覧", :rooms %></li>
+      <li><%= link_to "予約済み一覧", :reservations %></li>
+      <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+      <li><%= link_to "ユーザー詳細", "/users/show" %></li>
+    </ul>
     <% else %>
-     <div class="log_in">
-      <%= link_to "ログイン", "/users/sign_in" %>
-     </div>
-     <div class="user_new">
-      <%= link_to "新規登録", "/users/sign_up" %>
-     </div>
+      <ul class="menus">
+      <li><%= link_to "ログイン", "/users/sign_in" %></li>
+      <li><%= link_to "新規登録", "/users/sign_up" %></li>
+    </ul>
     <% end %>
-   </div>
+    </div>
+
+
   </header>
     <%= yield %>
+
+  <footer>
+    <div clss="footer-image">
+      <p>© 2020 POTEPAN.INC.</p>
+    </div>
+  </footer>
   </body>
 </html>
