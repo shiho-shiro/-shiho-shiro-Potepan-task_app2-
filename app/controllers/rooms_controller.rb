@@ -11,6 +11,7 @@ class RoomsController < ApplicationController
   def create
     @room = Room.new(params.require(:room).permit(:name,:introduction,:address,:price,:image))
     @room.user_id = current_user.id
+    @user = current_user
 
 
     if @room.save

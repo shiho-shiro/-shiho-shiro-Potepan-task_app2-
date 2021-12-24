@@ -1,0 +1,109 @@
+html{
+	min-height: 100%;
+	position: relative;
+}
+.header{
+	height: 70px;
+	width: 100%;
+	background-color:rgb(97, 61, 8);
+}
+
+.top{
+	display: flex;
+	align-items: center;
+	margin-left: 20px;
+}
+.header_log{
+	display: flex;
+}
+input[type="text"] {
+	width: 180px;
+	height: 40px;
+	font-size: medium;
+	border-radius: 3px;
+}
+.search{
+	display: flex;
+	align-items: center;
+
+}
+.keyword{
+	margin-left: 5px;
+}
+.btn{
+	display: none;
+}
+.header_menu{
+	position: fixed;
+	right: 0;
+}
+.nonline{
+	text-decoration: none;
+}
+.unsign-menus{
+	display: flex;
+}
+
+.login{
+	color: #fff;
+	font-size: medium;
+	margin-right: 15px;
+	padding: 13px;
+	border-radius: 5px;
+	background-color: rgb(137, 158, 250);
+}
+.login:hover{
+	background-color: blue;
+}
+.new{
+	font-size: medium;
+	margin-right: 30px;
+	padding: 13px;
+	border-radius: 5px;
+	background-color:rgba(250, 158, 178, 0.808);
+	color: #fff;
+}
+.new:hover{
+	background-color: rgb(233, 38, 38);
+}
+
+.header_user {
+	margin:190px 40px 0 0;
+	display: flex;
+
+}
+.user-name p{
+	color: rgb(255, 255, 255);
+	font-size: large;
+	margin:50px 20px 0 0;
+}
+.user_icon img {
+	border-radius:50px;
+	margin-top: 27px;
+}
+.menus{
+	border-radius: 5px;
+	padding: 20px;
+	margin: 0 10px 0 0;
+	background-color: rgb(255, 255, 255);
+	border: 2px ridge #fff;
+	border-top: none;
+
+}
+.menus li{
+	margin-bottom: 15px;
+	font-size: large;
+}
+.footer{
+	width: 100%;
+	bottom: 0;
+	height: 5em;
+	position: absolute;
+	background-color: rgb(61, 38, 4);
+}
+.footer_memo{
+	color: #fff;
+	text-align: center;
+	margin-top:30px ;
+	font-size: small;
+}
