@@ -1,20 +1,26 @@
 html{
 	min-height: 100%;
-	position: relative;
+ 	position: relative;
 }
 .header{
 	height: 70px;
 	width: 100%;
 	background-color:rgb(97, 61, 8);
+	position:relative;
 }
-
+.nonline{
+    text-decoration: none;
+}
 .top{
 	display: flex;
 	align-items: center;
-	margin-left: 20px;
+	justify-content: space-between;
+	margin: 0 30px;
 }
 .header_log{
 	display: flex;
+	margin-bottom: 200px;
+
 }
 input[type="text"] {
 	width: 180px;
@@ -25,7 +31,6 @@ input[type="text"] {
 .search{
 	display: flex;
 	align-items: center;
-
 }
 .keyword{
 	margin-left: 5px;
@@ -33,67 +38,63 @@ input[type="text"] {
 .btn{
 	display: none;
 }
-.header_menu{
-	position: fixed;
-	right: 0;
-}
-.nonline{
-	text-decoration: none;
-}
 .unsign-menus{
 	display: flex;
+	margin-bottom: 200px;
 }
-
 .login{
-	color: #fff;
-	font-size: medium;
-	margin-right: 15px;
-	padding: 13px;
-	border-radius: 5px;
-	background-color: rgb(137, 158, 250);
+    color: #fff;
+    font-size: medium;
+    margin-right: 15px;
+    padding: 13px;
+    border-radius: 5px;
+    background-color: rgb(137, 158, 250);
 }
 .login:hover{
-	background-color: blue;
+    background-color: blue;
 }
 .new{
-	font-size: medium;
-	margin-right: 30px;
-	padding: 13px;
-	border-radius: 5px;
-	background-color:rgba(250, 158, 178, 0.808);
-	color: #fff;
+    font-size: medium;
+    margin-right: 30px;
+    padding: 13px;
+    border-radius: 5px;
+    background-color:rgba(250, 158, 178, 0.808);
+    color: #fff;
 }
 .new:hover{
-	background-color: rgb(233, 38, 38);
+    background-color: rgb(233, 38, 38);
 }
-
-.header_user {
-	margin:190px 40px 0 0;
+.header_user{
 	display: flex;
-
+	align-items: center;
+	margin-left: 80px;
+	justify-content: space-between;
 }
 .user-name p{
-	color: rgb(255, 255, 255);
-	font-size: large;
-	margin:50px 20px 0 0;
-}
-.user_icon img {
-	border-radius:50px;
-	margin-top: 27px;
-}
-.menus{
-	border-radius: 5px;
-	padding: 20px;
-	margin: 0 10px 0 0;
-	background-color: rgb(255, 255, 255);
-	border: 2px ridge #fff;
-	border-top: none;
+    color: rgb(255, 255, 255);
+    font-size: large;
+	padding-bottom: 10px;
 
 }
-.menus li{
-	margin-bottom: 15px;
-	font-size: large;
+#user_icon img {
+    border-radius:50px;
+	margin-bottom: 8px;
 }
+#menus{
+    border-radius: 5px;
+    padding: 8px 20px;
+    background-color: rgb(255, 255, 255);
+    border: 2px ridge #fff;
+	border-top: none;
+	z-index: 1;
+	visibility:hidden;
+}
+#menus li{
+ margin-bottom: 15px;
+ margin-top: 10px;
+ font-size: large;
+}
+
 .footer{
 	width: 100%;
 	bottom: 0;
