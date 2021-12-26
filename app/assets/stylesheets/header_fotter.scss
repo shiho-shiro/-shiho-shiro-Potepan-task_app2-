@@ -13,13 +13,14 @@ html{
 }
 .top{
 	display: flex;
-	align-items: center;
+	height: 70px;
 	justify-content: space-between;
 	margin: 0 30px;
 }
 .header_log{
 	display: flex;
-	margin-bottom: 200px;
+	height: 70px;
+
 
 }
 input[type="text"] {
@@ -29,18 +30,22 @@ input[type="text"] {
 	border-radius: 3px;
 }
 .search{
-	display: flex;
+	display: contents;
 	align-items: center;
+}
+.area_search{
+	margin-top: 15px;
 }
 .keyword{
 	margin-left: 5px;
+	margin-top: 15px;
 }
 .btn{
 	display: none;
 }
 .unsign-menus{
 	display: flex;
-	margin-bottom: 200px;
+	margin-top: 25px
 }
 .login{
     color: #fff;
@@ -65,34 +70,52 @@ input[type="text"] {
     background-color: rgb(233, 38, 38);
 }
 .header_user{
-	display: flex;
 	align-items: center;
 	margin-left: 80px;
 	justify-content: space-between;
+	display: flex;
+}
+.user-name{
+	margin-right: 20px;
+	height: 70px;
 }
 .user-name p{
     color: rgb(255, 255, 255);
     font-size: large;
-	padding-bottom: 10px;
 
+	margin-top: 25px;
+
+}
+#user_icon{
+	margin-top: 6px;
 }
 #user_icon img {
     border-radius:50px;
-	margin-bottom: 8px;
+
+}
+.manu{
+
+
 }
 #menus{
+	width: fit-content;
+	float: right;
     border-radius: 5px;
     padding: 8px 20px;
     background-color: rgb(255, 255, 255);
     border: 2px ridge #fff;
 	border-top: none;
 	z-index: 1;
-	visibility:hidden;
+	margin-right: 15px;
+	display: none;
+
 }
+
 #menus li{
  margin-bottom: 15px;
  margin-top: 10px;
  font-size: large;
+
 }
 
 .footer{
