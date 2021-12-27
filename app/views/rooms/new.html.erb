@@ -1,4 +1,4 @@
-<h2><span class="caption">ルーム情報登録</span></2>
+<h2><span class="caption"><%= link_to "ルーム情報登録", :new_room ,id:"new_rooms"%></span></2>
 <div class="box">
  <%= render"shared/error", obj: @room %>
  <%= form_with model: @room do |f| %>
