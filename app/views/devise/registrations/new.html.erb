@@ -1,34 +1,38 @@
-<h2>新しいアカウントを作成</h2>
+<h2>
+  <span class="caption-new_a">
+   <%= link_to "新規アカウント",new_user_registration_path ,id:"new_rooms" %>
+  </span>
+</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+<div class="new_acount">
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true, autocomplete: "ユーザー名" %>
+  <div class="register">
+    <p>必須</p>
+    <%= f.text_field :name, autofocus: true, autocomplete: "ユーザー名",placeholder:"アカウント名",class:"new_pass" %>
   </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "メールアドレス" %>
+  <div class="register">
+    <p>必須</p>
+    <%= f.email_field :email, autofocus: true, autocomplete: "メールアドレス",placeholder:"メールアドレス",class:"new_pass" %>
   </div>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "パスワード" %>
+  <div class="register">
+    <p>必須</p>
+    <% if @minimum_password_length %><em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %>
+    <%= f.password_field :password, autocomplete: "パスワード",placeholder:"パスワード",class:"new_pass" %>
   </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "確認用パスワード" %>
+  <div class="register">
+    <p>必須</p>
+    <%= f.password_field :password_confirmation, autocomplete: "確認用パスワード",placeholder:"確認用パスワード",class:"new_pass" %>
   </div>
 
-  <div class="actions">
-    <%= f.submit "新しいアカウントを作成" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+  <ul class="actions">
+    <li><%= f.submit "新しいアカウントを作成",id:"submit_register-_account" %></li>
+    <li><%= link_to "既にアカウントお持ちの方はログイン", new_user_session_path, id:"login_acount" %></li>
+  </ul>
+ <% end %>
+</div>

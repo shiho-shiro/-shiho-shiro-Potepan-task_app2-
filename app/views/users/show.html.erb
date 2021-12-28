@@ -1,11 +1,13 @@
-<h2>アカウント</h2>
-<table>
-  <tr>
-	<th>アカウント画像</th>
-	<% if @user.image.present? %>
-	<td><%= image_tag @user.image.variant(resize:'50x50'), clss: "user_icon" %></td>
-	<% end %>
-  </tr>
+<h2>
+ <span class="caption_my_acount">
+  <%= link_to"アカウント", users_show_path,id:"new_rooms" %>
+ </span>
+</h2>
+<div class="user_box">
+ <% if @user.image.present? %>
+  <%= image_tag @user.image.variant(resize:'200x200'), clss: "user_icon" %>
+ <% end %>
+ <table class="user_detail">
   <tr>
 	<th>ユーザー名</th>
 	<td><%= @user.name %></td>
@@ -22,6 +24,8 @@
 	<th>パスワード</th>
 	<td>*********</td>
   </tr>
-</table>
-
-<%= link_to "編集する" , edit_user_registration_path  %>
+ </table>
+ <span id="user_edit">
+  <%= link_to "編集する" , edit_user_registration_path, id:"user_edit_btn" %>
+ </span>
+</div>

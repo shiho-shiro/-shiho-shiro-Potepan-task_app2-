@@ -1,0 +1,73 @@
+.caption_my_acount {
+	margin-left: 350px;
+	padding: 20px 20px 6px 20px;
+	background-color: #fff;
+	border: 5px #faebd6 dashed;
+	border-bottom: none;
+	z-index: 1;
+	letter-spacing: 2px;
+	font-family: 'Hannotate TC',sans-serif;
+	font-size: large;
+}
+#new_rooms{
+	color: rgba(97, 66, 1, 0.952);
+	text-decoration: none;
+}
+.user_box{
+	width:45%;
+	height: 100%;
+	background-color: #fff;
+	padding-top: 20px;
+	margin: 0 0 0 350px;
+	border: 5px #faebd6 dashed;
+}
+.user_box img{
+	float: right;
+	border-radius: 50%;
+	margin: 20px 40px 0 0;
+}
+.user_detail{
+	border-collapse: separate;
+    border-spacing: 30px 20px;
+	padding: 30px;
+	margin-left: 80px;
+	margin-top: 10px;
+	border-collapse:collapse
+}
+.user_detail th{
+	letter-spacing: 1px;
+	font-family: 'Hiragino Kaku Gothic ProN','ヒラギノ角ゴ ProN W3',sans-serif;
+	padding-bottom: 20px;
+	padding-top: 20px;
+}
+.user_detail tr{
+	border-bottom: 1px rgb(165, 133, 133) solid;
+}
+.user_detail td{
+	padding-left: 40px;
+	text-align: center;
+}
+#user_edit{
+	display: flex;
+	align-items: center;
+	margin-left: 410px;
+	margin-bottom: 40px;
+
+}
+#user_edit_btn{
+	width: 170px;
+	height: 40px;
+	padding: 10px;
+	margin-top: -30px;
+	font-family: "HiraKakuProN-W3";
+	letter-spacing: 1px;
+	text-decoration: none;
+	color:rgb(83, 82, 82);
+	background-color:#fdd3a5 ;
+	border: 1px #000 solid;
+	border-radius: 3px;
+	text-align: center;
+}
+#user_edit_btn:hover{
+	background-color: #f7b977;
+}

@@ -6,10 +6,12 @@ class User < ApplicationRecord
   validates :name, presence: true
   validates :image, presence: true, on: :update
   validates :email, uniqueness: true, presence: true
-  validates :password, length:{maximum:10}
-  validates :introduction, presence: true, on: :update
+  validates :password, length:{maximum:10},presence: true,on: :create
   validates :password, confirmation: true
-  
+
+  validates :introduction, presence: true, on: :update
+
+
   has_many :reservations, dependent: :destroy
   has_many :rooms , dependent: :destroy
 

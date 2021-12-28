@@ -1,36 +1,39 @@
-<h2><span class="caption"><%= link_to "ルーム情報登録", :new_room ,id:"new_rooms"%></span></2>
+<h2>
+ <span class="caption">
+  <%= link_to "ルーム情報登録", :new_room ,id:"new_rooms" %>
+ </span>
+</2>
 <div class="box">
  <%= render"shared/error", obj: @room %>
- <%= form_with model: @room do |f| %>
-  <table class="room-register">
+  <%= form_with model: @room do |f| %>
+   <table class="room-register">
 
+    <tr>
+      <th><%= f.label :name ,"ルーム名" %><p class="require">必須</p></th>
+      <td><%= f.text_field :name ,placeholder:"ルーム名" %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :introduction ,"ルーム紹介" %><p class="require">必須</p></th>
+      <td><%= f.text_area :introduction,placeholder:"ルーム紹介" %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :price ,"料金" %><p class="require">必須</p></th>
+      <td><%= f.number_field :price,placeholder:"1日の料金 *数字で入力" %></td>
+    </tr>
+		<tr>
+      <th><%= f.label :address ,"住所" %><p class="require">必須</p></th>
+      <td><%= f.text_field :address,placeholder:"アドレス" %></td>
+    </tr>
     <tr>
       <th><%= f.label :image ,"ルーム画像"%><p class="require">必須</p></th>
       <td><%= f.file_field :image %></td>
     </tr>
-    <tr>
-      <th><%= f.label :name ,"ルーム名" %><p class="require">必須</p></th>
-      <td><%= f.text_field :name %></td>
-    </tr>
-    <tr>
-      <th><%= f.label :introduction ,"ルーム紹介" %><p class="require">必須</p></th>
-      <td><%= f.text_area :introduction %></td>
-    </tr>
-    <tr>
-      <th><%= f.label :price ,"料金" %><p class="require">必須</p></th>
-      <td><%= f.number_field :price %></td>
-    </tr>
-		<tr>
-      <th><%= f.label :address ,"住所" %><p class="require">必須</p></th>
-      <td><%= f.text_field :address %></td>
-    </tr>
-  </table>
+   </table>
 
-  <div>
+
     <ul class="room-submit">
-      <li><%= f.submit "登録" , id:"submit-btn"%></li>
-		  <li ><%= link_to "部屋一覧に戻る", :rooms ,id:"room-return"%></li>
+      <li><%= f.submit "登録" , id:"submit-btn" %></li>
+		  <li ><%= link_to "部屋一覧に戻る", :rooms ,id:"room-return" %></li>
     </ul>
-  </div>
- <% end %>
+  <% end %>
 </div>

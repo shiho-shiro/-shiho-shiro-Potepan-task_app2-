@@ -1,16 +1,16 @@
 h2{
-	margin-top: 40px;
+	margin-top: 60px;
 }
 .caption {
-
 	margin-left: 250px;
 	padding: 20px 20px 6px 20px;
 	background-color: #fff;
 	border: 5px #faebd6 dashed;
 	border-bottom: none;
 	z-index: 1;
-	letter-spacing: 1px;
+	letter-spacing: 2px;
 	font-family: 'Hannotate TC',sans-serif;
+	font-size: large;
 }
 #new_rooms{
 	color: rgba(97, 66, 1, 0.952);
@@ -51,7 +51,8 @@ h2{
 }
 
 .room-register input[type="file"]{
-	margin-bottom: 15px;
+	margin-bottom: 25px;
+	margin-top: 30px;
 
 }
 .room-register input[type="number"]{
