@@ -8,7 +8,7 @@
 
 
 <div class="edit_acount">
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+ <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
   <table class="edit-register">
   <tr>
@@ -48,11 +48,13 @@
   </tr>
 
   </table>
-  <ul class="edit_actions">
-    <li><%= f.submit "更新" ,id:"submit_register_edit" %></li>
+  <div class="edit_actions">
+    <%= f.submit "更新" ,id:"submit_register_edit" %>
 
-  </ul>
-<% end %>
-<%= button_to "このアカウントを削除", registration_path(resource_name), data: { confirm: "このアカウントを削除しますか?" }, method: :delete, id:"delete_acount" %>
+  </div>
+ <% end %>
+ <div class="delete_acount">
+ <%= button_to "このアカウントを削除", registration_path(resource_name), data: { confirm: "このアカウントを削除しますか?" }, method: :delete, id:"delete_acount" %>
+ </div>
 </div>
 

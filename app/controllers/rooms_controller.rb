@@ -25,9 +25,13 @@ class RoomsController < ApplicationController
   def search
     @user = current_user
     if params[:address].present?
-      @rooms = Room.where('address LIKE ?', "%#{params[:address]}%")
+      @rooms = Room.where('address LIKE ?', "%#{params[:address]}%"
+)
+    elsif params[:name].present?
+      @rooms = Room.where('name LIKE ?',"%#{params[:name]}%"
+)
     else
-      @rooms = Room.none
+      @rooms = Room.all
     end
   end
 
@@ -48,9 +52,6 @@ class RoomsController < ApplicationController
   end
 
   def destroy
-    @room = Room.find(params[:id])
-    @room.destroy
-    flash[:notice] = "削除しました"
-    redirect_to :rooms
+
   end
 end

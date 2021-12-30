@@ -6,16 +6,16 @@
 
 <div class="box_index_reserv">
 
-<% if flash[:notice] %>
+ <% if flash[:notice] %>
   <div class="flash">
 	<%= flash[:notice] %>
   </div>
-<% end %>
+ <% end %>
 
-<table class="index_reserv">
- <div class="page" >
- <%= paginate @reservations %>
- </div>
+ <table class="index_reserv">
+  <div class="page" >
+   <%= paginate @reservations %>
+  </div>
   <thead>
     <tr>
 	  <th>ルーム画像</th>
@@ -29,21 +29,21 @@
   </thead>
 
   <tbody>
-    <% @reservations.each do |reserve| %>
-	<% if reserve.user_id == current_user.id %>
-	<tr>
+	<% @reservations.each do |reserve| %>
+	 <% if reserve.user_id == current_user.id %>
+	 <tr>
 	  <% if reserve.room.image.present? %>
-	  <td><%= link_to image_tag(reserve.room.image.variant(resize:'250x250'), clss: "rooms_icon"), room_path(id: reserve.room_id) %></td>
-	<% end %>
-	  <td><%= link_to reserve.room.name,room_path(id: reserve.room_id) %></td>
+	   <td><%= link_to image_tag(reserve.room.image.variant(resize:'250x250'), clss: "rooms_icon"), room_path(id: reserve.room_id) %></td>
+	  <% end %>
+	  <td><%= link_to reserve.room.name,room_path(id: reserve.room_id) ,class:"name_link" %></td>
 	  <td><%= reserve.room.introduction %></td>
-	  <td>¥<%= reserve.room.price %></td>
+	  <td>¥ <%= reserve.room.price %></td>
 	  <td><%= reserve.check_in.strftime("%Y年%m月%d日") %></td>
 	  <td><%= reserve.check_out.strftime("%Y年%m月%d日") %></td>
 	  <td><%= reserve.updated_at.to_s(:datetime_jp) %></td>
-	</tr>
-<% end %>
-<% end %>
+	 </tr>
+	 <% end %>
+	<% end %>
   </tbody>
-</table>
+ </table>
 </div>

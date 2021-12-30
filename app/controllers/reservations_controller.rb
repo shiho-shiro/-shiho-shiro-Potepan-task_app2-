@@ -24,6 +24,7 @@ class ReservationsController < ApplicationController
     else
     @reservation.total_days = @reservation.amount_days.to_i
     @reservation.total_amount = @reservation.amount_price.to_i
+    @reservation.save
     end
   end
 
@@ -33,17 +34,16 @@ class ReservationsController < ApplicationController
     @reservation.user_id = current_user.id
     @room = Room.find(params[:id])
     @reservation.room_id = @room.id
-
   end
 
 
   def complete
     @user = current_user
     @reservation = Reservation.new(reservation_params)
-    @reservation.save
-    flash[:notice] = "予約が完了しました"
+
 
   end
+
 
   def edit
   end

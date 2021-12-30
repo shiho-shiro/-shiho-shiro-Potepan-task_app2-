@@ -21,14 +21,13 @@ html{
 .header_log{
 	display: flex;
 	height: 70px;
-
-
 }
 .search input[type="text"] {
 	width: 180px;
 	height: 40px;
 	font-size: medium;
 	border-radius: 3px;
+	border-color: #fff;
 }
 .search{
 	display: contents;

@@ -33,7 +33,7 @@
     <p id="make_sure">上記内容でよろしければ「予約を確定」を押してください。<p>
   </div>
 
-  <%= form_with model: @reservation, method: :post, url: complete_reservations_path do |r| %>
+  <%= form_with model: @reservation, method: :get, url: complete_reservations_path do |r| %>
     <%= r.hidden_field :check_in ,value:@reservation.check_in %>
     <%= r.hidden_field :check_out,value:@reservation.check_out  %>
     <%= r.hidden_field :customer,value:@reservation.customer %>

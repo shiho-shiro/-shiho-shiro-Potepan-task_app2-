@@ -28,7 +28,7 @@
         </div>
         <div class="keyword">
          <%= form_with url: search_rooms_path, method: :get, local: true do |s| %>
-          <%= s.text_field :address,placeholder: "キーワード" %>
+          <%= s.text_field :name,placeholder: "キーワード" %>
           <%= s.submit :search, class: "btn" %><!-- cssでボタンを非表示 -->
          <% end %>
         </div>

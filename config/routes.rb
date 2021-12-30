@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   end
   resources :reservations do
     collection do
-     post :complete # 完了画面
+     get :complete# 完了画面
     end
   end
 end

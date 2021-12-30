@@ -1,12 +1,22 @@
-<h2>検索結果 : <span><%= Room.where('address LIKE ?', "%#{params[:address]}%").count %></span>件</h2>
-
-<% @rooms.each do |room| %>
-<div class="result">
-  <% if room.image.present? %>
-   <%= image_tag room.image.variant(resize:'150x150'), clss: "search_rooms" %>
+<div class="search_page">
+<h2 class="count_result">検索結果 :<span>
+  <% if Room.where('name LIKE ?',"%#{params[:name]}%") %>
+  <%= Room.where('name LIKE ?',"%#{params[:name]}%").count %>
+  <% elsif Room.where('address LIKE ?', "%#{params[:address]}%")%>
+  <%= Room.where('address LIKE ?', "%#{params[:address]}%").count %>
   <% end %>
-    <h3><%= room.name %></h3>
-    <p><%= room.address %></p>
-    <p>¥ <%= room.price %></p>
+</span>件</h2>
+
+<div class="result">
+  <% @rooms.each do |room| %>
+  <ul class="result_display" >
+    <% if room.image.present? %>
+     <li><%= link_to image_tag(room.image.variant(resize:'320x320')),room, clss: "search_rooms" %></li>
+    <% end %>
+    <li id="search_name"><p><%= room.name%></p></li>
+    <li id="search_address"><p><%= room.address %></p></li>
+    <li id="search_price"><p>¥<%= room.price %></p></li>
+   </ul>
+  <% end %>
 </div>
-<% end %>
+</div>

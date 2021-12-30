@@ -1,17 +1,27 @@
-<h2>予約完了</h2>
+<h2>
+ <span class="caption_complete_reserve">予約完了</span>
+</h2>
 
-<%= "¥#{@reservation.room.price} / 日" %><br>
- <p>ルームルーム名 </p>
-<%= @reservation.room.name %><br>
-<p>チェックイン </p>
-  <%= @reservation.check_in %><br>
-<p>チェックアウト </p>
-  <%= @reservation.check_out %><br>
-<p>宿泊人数</p>
-  <%= @reservation.customer %><br>
-<p>宿泊人数 </p>
-  <%= @reservation.total_days %><br>
-<p>合計金額 </p>
-  <%= @reservation.total_amount %><br>
+<div class="complete_reserve_detail">
 
-<%= link_to "予約済み一覧", :reservations %>
+  <table class="complete_detail">
+    <tr>
+	    <th>予約した部屋</th>
+      <td><%= @reservation.room.name %></td>
+    </tr>
+      <th>チェックイン</th>
+      <td><%= @reservation.check_in %></td>
+    </tr>
+    <tr>
+	    <th>チェックアウト</th>
+      <td><%= @reservation.check_out %></td>
+    </tr>
+    <tr id="complete_amount">
+	    <th>合計金額</th>
+      <td>¥ <%= @reservation.total_amount %></td>
+    </tr>
+  </table>
+  <div class="return_top_btn">
+  <%= link_to "トップページに戻る", "/", class:"return_top" %>
+  </div>
+</div>
