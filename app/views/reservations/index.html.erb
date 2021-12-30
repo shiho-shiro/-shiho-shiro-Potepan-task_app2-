@@ -1,4 +1,10 @@
-<h2>予約したルーム一覧</h2>
+<h2>
+ <span class="caption_index_reserv">
+  <%= link_to "予約したルーム一覧", :reservations ,id:"new_rooms" %>
+ </span>
+</h2>
+
+<div class="box_index_reserv">
 
 <% if flash[:notice] %>
   <div class="flash">
@@ -6,7 +12,10 @@
   </div>
 <% end %>
 
-<table>
+<table class="index_reserv">
+ <div class="page" >
+ <%= paginate @reservations %>
+ </div>
   <thead>
     <tr>
 	  <th>ルーム画像</th>
@@ -24,9 +33,9 @@
 	<% if reserve.user_id == current_user.id %>
 	<tr>
 	  <% if reserve.room.image.present? %>
-	  <td><%= image_tag reserve.room.image.variant(resize:'100x100'), clss: "rooms_icon" %></td>
+	  <td><%= link_to image_tag(reserve.room.image.variant(resize:'250x250'), clss: "rooms_icon"), room_path(id: reserve.room_id) %></td>
 	<% end %>
-	  <td><%= reserve.room.name %></td>
+	  <td><%= link_to reserve.room.name,room_path(id: reserve.room_id) %></td>
 	  <td><%= reserve.room.introduction %></td>
 	  <td>¥<%= reserve.room.price %></td>
 	  <td><%= reserve.check_in.strftime("%Y年%m月%d日") %></td>
@@ -37,3 +46,4 @@
 <% end %>
   </tbody>
 </table>
+</div>

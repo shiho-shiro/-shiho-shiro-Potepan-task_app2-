@@ -4,7 +4,7 @@ class ReservationsController < ApplicationController
   def index
     #予約済みの部屋を表示
     @user = current_user
-    @reservations = Reservation.all
+    @reservations = Reservation.all.page(params[:page]).per(5)
   end
   def new
     @user = current_user
@@ -41,7 +41,6 @@ class ReservationsController < ApplicationController
     @user = current_user
     @reservation = Reservation.new(reservation_params)
     @reservation.save
-    redirect_to :reservations
     flash[:notice] = "予約が完了しました"
 
   end

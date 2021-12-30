@@ -7,6 +7,7 @@
 <% end %>
 
 <table>
+ <%= paginate @rooms %>
   <thead>
     <tr>
 	  <th>ルーム画像</th>
@@ -22,7 +23,7 @@
 	<% if room.user_id == current_user.id %>
 	<tr>
 	<% if room.image.present? %>
-	  <td><%= image_tag room.image.variant(resize:'100x100'), clss: "rooms_icon" %></td>
+	  <td><%= link_to image_tag(room.image.variant(resize:'100x100'),clss: "rooms_icon" ),room %></td>
 	<% end %>
 	  <td><%= link_to room.name , room %></td>
 	  <td><%= room.introduction %></td>
@@ -33,6 +34,7 @@
 <% end %>
 <% end %>
   </tbody>
+
 </table>
 
  <%= link_to "ルーム新規登録", :new_room %>

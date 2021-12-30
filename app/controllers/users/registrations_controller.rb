@@ -2,7 +2,7 @@
 
 class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
-  # before_action :configure_account_update_params, only: [:update]
+  #before_action :configure_account_update_params, only: [:update]
   protected
   # アカウント編集後、プロフィール画面に移動する
   def after_update_path_for(resource)
@@ -24,9 +24,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # PUT /resource
-  # def update
-  #   super
-  # end
+   #def update
+    #super
+   #end
 
   # DELETE /resource
   # def destroy
@@ -46,6 +46,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def update_resource(resource, params)
     resource.update_without_password(params)
+
   end
 
   # If you have extra params to permit, append them to the sanitizer.

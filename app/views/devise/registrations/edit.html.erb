@@ -1,15 +1,18 @@
 <h2>
  <span class="caption-edit_a">
  <%= link_to "プロフィール編集画面", edit_user_registration_path, id:"new_rooms" %>
+
  </span>
 </h2>
+
+
 
 <div class="edit_acount">
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
   <table class="edit-register">
   <tr>
-    <th><%= f.label :image, "アカウント画像" %><p class="vol">任意</p></th>
+    <th><%= f.label :image, "アカウント画像" %><p class="require">必須</p></th>
     <td><%= f.file_field :image %></td>
   </tr>
 
@@ -47,9 +50,9 @@
   </table>
   <ul class="edit_actions">
     <li><%= f.submit "更新" ,id:"submit_register_edit" %></li>
-    <li><%= button_to "このアカウントを削除", registration_path(resource_name), data: { confirm: "このアカウントを削除しますか?" }, method: :delete, id:"delete_acount" %></li>
+
   </ul>
 <% end %>
-
+<%= button_to "このアカウントを削除", registration_path(resource_name), data: { confirm: "このアカウントを削除しますか?" }, method: :delete, id:"delete_acount" %>
 </div>
 

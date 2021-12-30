@@ -1,34 +1,54 @@
-<h2>予約内容確認</h2>
+<h2>
+ <span class="caption_new_reserve">予約内容確認</span>
+</h2>
 
-<%= "¥#{@reservation.room.price} / 日" %><br>
-<%= "ルーム名" %>
-<%= @reservation.room.name %><br>
-<%= "チェックイン" %>
-  <%= @reservation.check_in %><br>
-<%= "チェックアウト" %>
-  <%= @reservation.check_out  %><br>
-<%= "人数" %>
-  <%= @reservation.customer %><br>
-<%= "宿泊日数" %>
-  <%= @reservation.total_days %><br>
-<%= "合計金額" %>
-  <%= @reservation.total_amount %><br>
+<div class="new_reserve_box">
+  <div class="new_reserve_detail">
 
-<%= form_with model: @reservation, method: :post, url: complete_reservations_path do |r| %>
+   <div class="room_reserve">
+    <%= "ルーム名: #{@reservation.room.name}" %>
+    <span class="space">
+      <%= "¥ #{@reservation.room.price} / 日" %>
+    </span>
+   </div><br>
+
+    <p class="reserve_detail">チェックイン</p>
+    <span class="check"><%= @reservation.check_in %></span>
+
+    <p class="reserve_detail">チェックアウト</p>
+    <span class="check"><%= @reservation.check_out %></span><br>
+
+   <div class="room_reserve">
+    <%= "使用日数:  #{@reservation.total_days}日" %>
+   </div><br>
+
+   <div class="room_reserve">
+    <%= "人数: #{@reservation.customer}人" %>
+   </div><br>
+
+   <div class="room_reserve">
+    <%= "合計金額: ¥ #{@reservation.total_amount}" %>
+   </div>
+
+    <p id="make_sure">上記内容でよろしければ「予約を確定」を押してください。<p>
+  </div>
+
+  <%= form_with model: @reservation, method: :post, url: complete_reservations_path do |r| %>
     <%= r.hidden_field :check_in ,value:@reservation.check_in %>
     <%= r.hidden_field :check_out,value:@reservation.check_out  %>
     <%= r.hidden_field :customer,value:@reservation.customer %>
-	<%= r.hidden_field :room_id ,value: @reservation.room_id%>
-	<%= r.hidden_field :user_id,value: current_user.id  %>
-	<%= r.hidden_field :total_days,value:@reservation.total_days %>
-	<%= r.hidden_field :total_amount,value:@reservation.total_amount %>
-      <div>
-        <ul>
-          <li><%= r.submit "予約を確定する" %></li>
-		  <li><%= link_to "予約画面に戻る", :rooms  %></li>
-        </ul>
-      </div>
-	   <% end %>
+	  <%= r.hidden_field :room_id ,value: @reservation.room_id%>
+	  <%= r.hidden_field :user_id,value: current_user.id  %>
+	  <%= r.hidden_field :total_days,value:@reservation.total_days %>
+	  <%= r.hidden_field :total_amount,value:@reservation.total_amount %>
+
+    <ul class="reserve_choose">
+      <li id="submit_new_reserve_border"><%= r.submit "予約を確定する",id:"submit_new_reserve" %></li>
+		  <li id="return_reserve_bottom"><%= link_to "予約画面に戻る", :rooms ,id:"return_reserve" %></li>
+    </ul>
+
+  <% end %>
+</div>
 
 
 

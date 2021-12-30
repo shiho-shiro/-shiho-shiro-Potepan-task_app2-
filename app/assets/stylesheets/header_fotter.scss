@@ -92,19 +92,21 @@ html{
 }
 #user_icon img {
     border-radius:50px;
-
+}
+.menu{
+	margin-left: 1230px;
 }
 #menus{
 	width: fit-content;
-	float: right;
+	position: absolute;
+	display: none;
     border-radius: 5px;
     padding: 8px 20px;
     background-color: rgb(255, 255, 255);
     border: 2px ridge #fff;
 	border-top: none;
-	z-index: 1;
+	z-index: 10;
 	margin-right: 15px;
-	display: none;
 
 }
 

@@ -1,7 +1,7 @@
 class RoomsController < ApplicationController
   before_action :authenticate_user!, except: [:search]
   def index
-    @rooms = Room.all
+    @rooms = Room.all.page(params[:page]).per(5)
     @user = current_user
   end
   def new
