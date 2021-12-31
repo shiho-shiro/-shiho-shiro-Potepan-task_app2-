@@ -1,11 +1,9 @@
 <div class="top_all">
-
   <% if flash[:notice] %>
 	<div class="flash_top">
 	 <%= flash[:notice] %>
     </div>
   <% end %>
-
   <div class="top_head">
 	<div class="top_search_page">
 	    <div class="search_content">
@@ -17,12 +15,10 @@
 		</div>
 	</div>
   </div>
-
   <div class="under_rage">
     <div class="under_area_page">
 	<h1>おすすめのエリア</h1>
 	  <div class="area_page">
-
 	  	<div id="area_tokyo">
 		  <span>東京</span>
 		   <a href= "http://localhost:3000/rooms/search?search=%E6%9D%B1%E4%BA%AC&commit=search"><%= image_tag "img_tokyo.jpeg",id:"tokyo_img" %></a>
