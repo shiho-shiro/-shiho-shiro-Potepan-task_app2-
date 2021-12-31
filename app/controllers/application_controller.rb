@@ -10,11 +10,11 @@ class ApplicationController < ActionController::Base
 	def configure_permitted_parameters
 	  added_attrs = [ :email, :username, :password, :password_confirmation ]
 	  devise_parameter_sanitizer.permit :sign_up, keys: [:name]
-	  devise_parameter_sanitizer.permit :account_update, keys: [:name, :introduction, :image,:password]
+	  devise_parameter_sanitizer.permit :account_update, keys: [:name, :introduction,:email, :image,:password]
 	  devise_parameter_sanitizer.permit :sign_in, keys: added_attrs
 	end
 	def configure_account_update_parameters
-		devise_parameter_sanitizer.permit(:account_update, keys: [:name, :introduction, :image,:password])
+		devise_parameter_sanitizer.permit(:account_update, keys: [:name, :introduction,:email ,:image,:password])
 	  end
 
 	# ログイン後、home#topに移動する
