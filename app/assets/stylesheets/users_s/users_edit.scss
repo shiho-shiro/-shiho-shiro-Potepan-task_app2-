@@ -1,0 +1,113 @@
+.caption-edit_a{
+	margin-left: 250px;
+	padding: 20px 20px 6px 20px;
+	background-color: #fff;
+	border: 5px #faebd6 dashed;
+	border-bottom: none;
+	z-index: 1;
+	letter-spacing: 2px;
+	font-family: 'Hannotate TC',sans-serif;
+	font-size: large;
+}
+.edit_acount{
+	width: 60%;
+	height: 100%;
+	background-color: #fff;
+	padding: 20px 0 20px 30px;
+	margin: 0 0 0 250px;
+	border: 5px #faebd6 dashed;
+}
+.edit-register{
+	display: flex;
+	margin: 10px 0px;
+	align-items: center;
+}
+.edit-register tr{
+	border-bottom: 1px rgb(165, 133, 133) solid;
+
+}
+.edit-register th{
+	letter-spacing: 1px;
+	font-family: 'Hiragino Kaku Gothic ProN','ヒラギノ角ゴ ProN W3',sans-serif;
+
+}
+.edit-register textarea{
+	width: 550px;
+	height: 100px;
+	margin-bottom: 30px;
+	margin-top: 20px;
+	font-size:15px;
+}
+.edit-register input[type="file"]{
+	margin-bottom: 25px;
+	margin-top: 30px;
+}
+.edit-register input[type="text"]{
+	width: 550px;
+	height: 40px;
+	margin-bottom: 30px;
+	margin-top: 20px;
+	font-size: medium;
+}
+.edit-register input[type="email"]{
+	width: 550px;
+	height: 40px;
+	margin-bottom: 30px;
+	margin-top: 20px;
+	font-size: medium;
+}
+.edit-register input[type="password"]{
+	width: 550px;
+	height: 40px;
+	margin-bottom: 30px;
+	margin-top: 20px;
+	font-size: medium;
+}.edit-register i{
+	font-size: 11px;
+	background:linear-gradient(transparent 60%, #6cf 60%);
+}
+
+.vol{
+	float: right;
+	padding: 4px 5px 4px 4px;
+	background-color: rgb(45, 66, 255);
+	color: #fff;
+	font-size: small;
+	margin: 3px 60px 5px 3px;
+	border-radius: 5px;
+}
+.edit_actions{
+		margin-bottom: 10px;
+		display: inline-block;
+}
+#submit_register_edit{
+	width: 645px;
+	height: 40px;
+	margin: 20px 0 20px 60px;
+	font-size: large;
+	letter-spacing: 1px;
+	background-color: rgb(248, 184, 147);
+	border-radius: 3px;
+	border: #fff;
+}
+#submit_register_edit:hover{
+	background-color:rgb(255, 166, 115);
+}
+
+#delete_acount{
+	height: 40px;
+	padding: 10px 250px;
+	margin: 10px 0 30px 60px;
+	font-family: "HiraKakuProN-W3";
+	letter-spacing: 1px;
+	text-decoration: none;
+	color:rgb(83, 82, 82);
+	background-color:#ffb1ae ;
+	border-radius: 3px;
+	color: #fff;
+	border: #fff;
+}
+#delete_acount:hover{
+	background-color: #f30808;
+}
+

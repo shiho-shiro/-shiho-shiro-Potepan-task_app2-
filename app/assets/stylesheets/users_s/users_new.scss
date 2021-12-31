@@ -1,0 +1,74 @@
+.caption-new_a{
+	margin-left: 350px;
+	padding: 20px 20px 6px 20px;
+	background-color: #fff;
+	border: 5px #faebd6 dashed;
+	border-bottom: none;
+	z-index: 1;
+	letter-spacing: 2px;
+	font-family: 'Hannotate TC',sans-serif;
+	font-size: large;
+}
+.new_acount{
+	width: 50%;
+	height: 100%;
+	background-color: #fff;
+	padding: 20px 0 20px 30px;
+	margin: 0 0 0 350px;
+	border: 5px #faebd6 dashed;
+}
+.register{
+	display: flex;
+	margin: 10px 0px;
+	align-items: center;
+}
+.register p {
+	height:fit-content;
+	padding: 9px;
+	background-color: #F00;
+	color: #fff;
+	font-size: small;
+	margin: 3px 20px 5px 5px;
+	border-radius: 5px;
+}
+.new_pass{
+	width: 540px;
+	height: 40px;
+	margin-bottom: 8px;
+	margin-top: 10px;
+	font-size: medium;
+}
+
+.actions li {
+	margin-bottom: 10px;
+}
+#submit_register-_account{
+	width: 550px;
+	height: 40px;
+	margin: 20px 0 20px 40px;
+	font-size: large;
+	letter-spacing: 1px;
+	background-color: rgb(248, 184, 147);
+	border-radius: 3px;
+	border: #fff;
+}
+#submit_register-_account:hover{
+	background-color:rgb(255, 166, 115);
+}
+#login_acount{
+	width: 100%;
+	height: 40px;
+	padding: 10px 130px;
+	margin-left: 40px;
+	font-family: "HiraKakuProN-W3";
+	letter-spacing: 1px;
+	text-decoration: none;
+	color:rgb(83, 82, 82);
+	background-color:#fdd3a5 ;
+	
+	border-radius: 3px;
+}
+#login_acount:hover{
+	background-color: #f7b977;
+	color: #000;
+}

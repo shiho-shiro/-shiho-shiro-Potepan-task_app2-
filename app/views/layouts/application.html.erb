@@ -5,12 +5,76 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
   </head>
 
   <body>
+   <header class="header">
+    <div class="top">
+      <div class="header_log">
+        <div class="header-img">
+         <a href= "/"><img src="https://presite-potepancamp-rails-02.herokuapp.com/assets/logo.png" alt="ヘッダーのロゴ"></a>
+        </div>
+
+      <div class="search">
+        <div class="area_search">
+          <%= form_with url: search_rooms_path, method: :get, local: true do |s| %>
+           <%= s.text_field :search,placeholder: "エリア" %>
+           <%= s.submit :search, class: "btn"  %><!-- cssでボタンを非表示 -->
+          <% end %>
+        </div>
+        <div class="keyword">
+         <%= form_with url: search_rooms_path, method: :get, local: true do |s| %>
+          <%= s.text_field :search,placeholder: "キーワード" %>
+          <%= s.submit :search, class: "btn" %><!-- cssでボタンを非表示 -->
+         <% end %>
+        </div>
+      </div>
+      </div>
+
+      <div class= "header_menu">
+      <% if user_signed_in? %>
+        <div class="header_user">
+          <div class="user-name">
+            <p id="acount" ><%= @user.name %></p>
+          </div>
+        <div id="user_icon" >
+      <% if @user.image.present? %>
+	      <%= image_tag @user.image.variant(resize:'60x60'), id:"acount"%>
+
+       <% end %>
+       </div>
+      </div>
+      </div>
+     </div>
+
+     <div class="menu">
+      <ul id="menus">
+       <li><%= link_to "部屋を登録", :new_room, class:"nonline" %></li>
+       <li> <%= link_to "登録した部屋一覧", :rooms, class:"nonline" %></li>
+       <li><%= link_to "予約済み一覧", :reservations, class:"nonline"  %></li>
+       <li><%= link_to "ユーザー詳細",  users_show_path, class:"nonline" %></li>
+       <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class:"nonline" %></li>
+      </ul>
+     <% else %>
+      <ul class="unsign-menus">
+       <li><%= link_to "ログイン", "/users/sign_in", class:"nonline login"  %></li>
+       <li><%= link_to "新規登録", "/users/sign_up", class:"nonline new" %></li>
+      </ul>
+     </div>
+     <% end %>
+
+   </header>
+
+
+
     <%= yield %>
+
+  <footer class="footer">
+      <p class="footer_memo">© 2020 POTEPAN.INC.</p>
+  </footer>
   </body>
 </html>

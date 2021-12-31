@@ -1,0 +1,54 @@
+.search_page{
+	padding: 30px 5px 30px 25px;
+}
+.count_result{
+	margin-top:0;
+	padding-bottom: 30px;
+	padding-top: 20px;
+	font-size: large;
+}
+.result{
+	display: flex;
+    flex-wrap: wrap;
+
+}
+.result_display{
+	margin-right: 30px;
+	margin-bottom: 20px;
+	padding-bottom: 30px;
+	border: 1px #000 solid;
+	background-color: #fff;
+}
+#search_name{
+	padding-left: 15px;
+	padding-top: 10px;
+}
+#search_name p{
+	width: fit-content;
+	font-family: 'Hannotate SC',sans-serif;
+	font-weight: bold;
+	color: #440000;
+	font-size: 20px;
+	background: linear-gradient(transparent 60%, #fcdfc3 70%);
+}
+
+#search_address{
+	padding-left: 15px;
+	padding-top:10px;
+	font-size: medium;
+	font-weight: bold;
+
+}
+#search_price{
+	float: right;
+	padding-right: 15px;
+}
+#search_price p{
+	width: fit-content;
+	font-family: 'Yu Mincho Light','YuMincho','Yu Mincho','游明朝体',sans-serif;
+	font-weight: bold;
+	color: #000;
+	font-size: 20px;
+	background: linear-gradient(transparent 70%, #f7ffc9 70%);
+}
+

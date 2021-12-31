@@ -1,0 +1,45 @@
+.error_message li{
+	margin-left: 60px;
+	display: inline-block;
+	background:linear-gradient(transparent 60%, rgb(255, 195, 187) 60%);
+}
+.login_error{
+	display: inline-block;
+	background:linear-gradient(transparent 60%, rgb(255, 195, 187) 60%);
+}
+#error_explanation h2{
+	margin-top: 0;
+}
+#error_explanation li{
+	width: fit-content;
+	display: block;
+	background:linear-gradient(transparent 60%, rgb(255, 195, 187) 60%);
+}
+.flash{
+	width: fit-content;
+	display: block;
+	margin-left: inherit;
+	background:linear-gradient(transparent 60%, #FFDDFF 60%);
+}
+.flash_user_show{
+	width: fit-content;
+	display: block;
+	margin-left: 20px;
+	background:linear-gradient(transparent 60%, #FFDDFF 60%);
+}
+.page{
+	margin-top: 10px;
+	margin-left: 20px;
+}
+.reservation_error{
+	display: inline-block;
+	background:linear-gradient(transparent 60%, rgb(255, 195, 187) 60%);
+	margin-top: 20px;
+}
+.flash_top{
+	background-color: #54b15e;
+	text-align: center;
+	font-family: 'ヒラギノ明朝 ProN','Hiragino Mincho ProN',sans-serif;
+	color: rgb(253, 249, 249);
+	font-size: large;
+}

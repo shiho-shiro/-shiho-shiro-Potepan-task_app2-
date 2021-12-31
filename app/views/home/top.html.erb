@@ -1,0 +1,42 @@
+<div class="top_all">
+  <% if flash[:notice] %>
+	<div class="flash_top">
+	 <%= flash[:notice] %>
+    </div>
+  <% end %>
+  <div class="top_head">
+	<div class="top_search_page">
+	    <div class="search_content">
+		 <h2>ここら始まる、新たな旅へ</h2>
+		  <%= form_with url: search_rooms_path, method: :get, local: true do |s| %>
+            <%= s.text_field :search,placeholder: "フリーワード" ,class:"search_window"%><br>
+            <%= s.submit :search,value:"Are you ready?", class: "top_btn"  %>
+	  	  <% end %>
+		</div>
+	</div>
+  </div>
+  <div class="under_rage">
+    <div class="under_area_page">
+	<h1>おすすめのエリア</h1>
+	  <div class="area_page">
+	  	<div id="area_tokyo">
+		  <span>東京</span>
+		   <a href= "http://localhost:3000/rooms/search?search=%E6%9D%B1%E4%BA%AC&commit=search"><%= image_tag "img_tokyo.jpeg",id:"tokyo_img" %></a>
+		</div>
+		<div id="area_osaka">
+		 <span>大阪</span>
+		   <a href= "http://localhost:3000/rooms/search?search=%E5%A4%A7%E9%98%AA&commit=search"><%= image_tag "img_osaka.jpeg",id:"osaka_img" %></a>
+		</div>
+		<div id="area_kyoto">
+		  <span>京都</span>
+		   <a href= "http://localhost:3000/rooms/search?search=%E4%BA%AC%E9%83%BD&commit=search"><%= image_tag "img_kyoto.jpeg",id:"kyoto_img" %></a>
+		</div>
+		<div id="area_hokaido">
+		 <span>札幌</span>
+		 <a href ="http://localhost:3000/rooms/search?search=%E6%9C%AD%E5%B9%8C&commit=search">
+		 <%= image_tag "img_sapporo.jpeg",id:"hokkaidou_img" %></a>
+		</div>
+	  </div>
+	</div>
+  </div>
+</div>

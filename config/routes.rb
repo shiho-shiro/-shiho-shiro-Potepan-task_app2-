@@ -1,3 +1,23 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  root 'home#top'
+  devise_for :users, controllers: { registrations: 'registrations' }, :controllers => {
+    :registrations => 'users/registrations',
+    :sessions => 'users/sessions'
+  }
+  devise_scope :users do
+    get "sign_in", :to => "users/sessions#new"
+    get "sign_out", :to => "users/sessions#destroy"
+  end
+
+  get 'users/show'
+  resources :rooms do
+    collection do
+      get :search
+    end
+  end
+  resources :reservations do
+    collection do
+     get :complete# 完了画面
+    end
+  end
 end

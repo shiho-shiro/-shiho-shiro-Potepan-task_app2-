@@ -1,0 +1,46 @@
+<div class="show_room_reserve">
+  <div class="room_show">
+    <% if @room.user_id == current_user.id %>
+    <% if @room.image.present? %>
+      <%= image_tag @room.image.variant(resize:'800x500'), clss: "room_image"  %><br>
+     <div class="room_photo_intro">
+      <%= link_to image_tag(@room.user.image.variant(resize:'70x70')),users_show_path, clss: "user_photo" %>
+    <% end %>
+     <div class="room_intro">
+     <ul>
+	    <li id="room_names"><%= @room.name %></li>
+      <li><%= @room.address %></li>
+     </ul>
+     </div>
+     </div>
+     <p class="room-information"><%= @room.introduction %></p>
+   <% end %>
+  </div>
+
+ <div class="show_reserve">
+  <div class="reservation_error">
+    <%= render"shared/error", obj: @reservation %>
+	  <%= notice %>
+  </div>
+  <%= form_with model: @reservation, url: new_reservation_path, method: :get ,local: true do |r| %>
+    <p><%= "¥#{@room.price} / 日" %></p><br>
+
+    <%= r.label :check_in ,"チェックイン" %><br>
+    <%= r.date_field :check_in ,class:"reservation_day" %><br>
+    <%= r.label :check_out ,"チェックアウト" %><br>
+    <%= r.date_field :check_out ,class:"reservation_day" %><br>
+  	<%= r.label :customer,"人数" %><br>
+    <%= r.number_field :customer, min: 1 ,class:"reservation_num" %><br>
+		<%= r.hidden_field :room_id, value: @room.id %>
+		<%= r.hidden_field :user_id, value: current_user.id %>
+  <div class="show_reserve_btns">
+    <ul >
+      <li><%= r.submit "予約を確認する",id:"if_reserve_btn" %></li>
+		  <li id="return_room_index_btn"><%= link_to "戻る", :rooms,id:"return_room_index" %></li>
+    </ul>
+  </div>
+  <% end %>
+</div>
+
+
+

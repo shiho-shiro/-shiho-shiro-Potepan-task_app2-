@@ -1,0 +1,53 @@
+.caption_index_reserv{
+	margin-left: 50px;
+	padding: 20px 20px 6px 20px;
+	background-color: #fff;
+	border: 5px #faebd6 dashed;
+	border-bottom: none;
+	z-index: 1;
+	letter-spacing: 2px;
+	font-family: 'Hannotate TC',sans-serif;
+	font-size: large;
+}
+.box_index_reserv{
+	width: 90%;
+	height: 100%;
+	background-color: #fff;
+	padding-top: 20px;
+	margin: 0 0 0 50px;
+	border: 5px rgb(250, 235, 214) dashed;
+}
+.index_reserv{
+	border-collapse: separate;
+    border-spacing: 30px 20px;
+	padding: 30px;
+	margin-left: 20px;
+	margin-top: 10px;
+	margin-bottom: 30px;
+	border-collapse:collapse
+}
+.index_reserv thead tr{
+	border-bottom: 1px rgb(165, 133, 133) solid;
+	border-top: 1px rgb(165, 133, 133) solid;
+}
+.index_reserv thead th{
+	padding: 5px;
+}
+.index_reserv tbody tr:nth-child(even){
+	background-color: #fcffec;
+}
+.index_reserv tbody td {
+	padding: 10px 20px 10px 35px;
+}
+.index_reservt th{
+	letter-spacing: 1px;
+	font-family: 'Hiragino Kaku Gothic ProN','ヒラギノ角ゴ ProN W3',sans-serif;
+}
+.name_link{
+	text-decoration: none;
+	font-family: 'Hannotate SC',sans-serif;
+	font-size: large;
+	color:#440000;
+	background:linear-gradient(transparent 60%, rgb(252, 223, 195) 70%);
+}
+

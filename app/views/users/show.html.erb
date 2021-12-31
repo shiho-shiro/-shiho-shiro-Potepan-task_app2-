@@ -1,0 +1,38 @@
+<h2>
+ <span class="caption_my_acount">
+  <%= link_to"アカウント", users_show_path,id:"new_rooms" %>
+ </span>
+</h2>
+<div class="user_box">
+  <% if flash[:notice] %>
+    <div class="flash_user_show">
+	   <%= flash[:notice] %>
+    </div>
+  <% end %>
+
+  <% if @user.image.present? %>
+   <%= image_tag @user.image.variant(resize:'200x200'), clss: "user_icon" %>
+  <% end %>
+  
+  <table class="user_detail">
+    <tr>
+	    <th>ユーザー名</th>
+	    <td><%= @user.name %></td>
+    </tr>
+    <tr>
+	    <th>メールアドレス</th>
+	    <td><%= @user.email %></td>
+    </tr>
+    <tr>
+	    <th>自己紹介</th>
+	    <td><%= @user.introduction %></td>
+    </tr>
+    <tr>
+	    <th>パスワード</th>
+	    <td>*********</td>
+    </tr>
+  </table>
+  <span id="user_edit">
+    <%= link_to "編集する" , edit_user_registration_path, id:"user_edit_btn" %>
+  </span>
+</div>

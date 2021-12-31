@@ -1,0 +1,45 @@
+<h2>
+ <span class="caption_index_room">
+ <%= link_to "登録したルーム一覧", :rooms ,id:"new_rooms"%>
+ </span>
+</h2>
+
+<div class="box_index_room">
+
+ <% if flash[:notice] %>
+  <div class="flash">
+	<%= flash[:notice] %>
+  </div>
+ <% end %>
+
+ <table class="index_room">
+  <div class="page">
+   <%= paginate @rooms %>
+  </div>
+
+   <thead>
+    <tr>
+	  <th>ルーム画像</th>
+	  <th>ルーム名</th>
+	  <th>ルーム紹介</th>
+	  <th>料金</th>
+	  <th>作成日</th>
+	</tr>
+   </thead>
+   <tbody>
+	<% @rooms.each do |room| %>
+	 <% if room.user_id == current_user.id %>
+	  <tr>
+	   <% if room.image.present? %>
+	  	<td><%= link_to image_tag(room.image.variant(resize:'250x250'),clss: "rooms_icon" ),room %></td>
+	   <% end %>
+	  	<td><%= link_to room.name , room,class:"name_link" %></td>
+	  	<td><%= room.introduction %></td>
+	  	<td>¥ <%= room.price %></td>
+		<td><%= room.updated_at.to_s(:datetime_jp) %></td>
+	 </tr>
+	 <% end %>
+	<% end %>
+   </tbody>
+ </table>
+</div>
