@@ -12,8 +12,6 @@ class RoomsController < ApplicationController
     @room = Room.new(params.require(:room).permit(:name,:introduction,:address,:price,:image))
     @room.user_id = current_user.id
     @user = current_user
-
-
     if @room.save
       redirect_to :rooms
       flash[:notice] = "部屋の登録が完了しました"
@@ -24,15 +22,7 @@ class RoomsController < ApplicationController
 
   def search
     @user = current_user
-    if params[:address].present?
-      @rooms = Room.where('address LIKE ?', "%#{params[:address]}%"
-)
-    elsif params[:name].present?
-      @rooms = Room.where('name LIKE ?',"%#{params[:name]}%"
-)
-    else
-      @rooms = Room.all
-    end
+    @rooms = Room.search(params[:search])
   end
 
   def show

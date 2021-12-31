@@ -10,4 +10,13 @@ class Room < ApplicationRecord
 	validates :image, presence: true
 
 	has_one_attached :image
+
+	def self.search(search)
+		if search
+			Room.where(['name LIKE ? OR address LIKE ? OR introduction LIKE ? ', "%#{search}%", "%#{search}%", "%#{search}%"])
+		else
+		  Room.all
+		end
+	end
+
 end
