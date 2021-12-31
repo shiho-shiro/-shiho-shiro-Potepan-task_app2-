@@ -23,6 +23,7 @@ class RoomsController < ApplicationController
   def search
     @user = current_user
     @rooms = Room.search(params[:search])
+
   end
 
   def show

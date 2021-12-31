@@ -1,1 +1,97 @@
+.top_head{
+	background-image: url("https://presite-potepancamp-rails-02.herokuapp.com/assets/img_cover_top.jpg");
+	background-size: cover;
+	width: 100%;
+	height: 650px;
+	margin: 0%;
+}
+.top_head h2{
+	margin-top: 0%;
+}
+.top_search_page{
+	padding: 180px 600px 100px 150px;
+	position: absolute;
 
+}
+.search_content{
+	background-color: #fff;
+	padding: 20px;
+}
+.search_content h2{
+	font-size: 30px;
+	font-family: 'Hannotate TC',sans-serif;
+	background:linear-gradient(transparent 80%, #ffe4c0 60%);
+}
+.search_window{
+	width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px inset;
+    font-size: 20px;
+}
+.top_btn{
+	width: 100%;
+    padding: 1;
+    padding: 8px;
+    border: none;
+    font-size: 20px;
+	background-color: #422700;
+	color: #422700;
+}
+.top_btn:hover{
+	background-color: #853e04d3;
+	color: #fff;
+}
+
+
+.under_rage{
+	width: 100%;
+	padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+
+}
+.under_area_page h1{
+	text-align: center;
+	font-size: 30px;
+	padding-top: 40px;
+	color: rgba(105, 69, 22, 0.651);
+}
+.area_page{
+	display: flex;
+	flex-wrap: wrap;
+	margin-left: 200px;
+	margin-top: 50px;
+}
+.area_page img{
+	width: 100%;
+    height: 360px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 25px;
+	position: relative;
+
+}
+.under_rage span{
+	position: absolute;
+	z-index: 1;
+	color: #fff;
+	font-size: 20px;
+	font-weight: bold;
+	padding-left: 80px;
+	margin-top: 320px
+}
+#tokyo_img{
+	width: 200px;
+	margin-right: 70px;
+}
+#osaka_img{
+	width: 80%;
+}
+#kyoto_img{
+	width: 80%;
+}
+#hokkaidou_img{
+	width: 200px;
+}
